@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // Update below to match your own MongoDB connection string.
-const MONGO_URL = process.env.MONGO_URL;
+const MONGO_URL = process.env.MONGO_URL || "mongodb+srv://nasa-api:5P9ROVdXkMDuA03f@nasacluster.himhc.mongodb.net/nasa?retryWrites=true&w=majority";
 
 
 mongoose.connection.once('open', () => {
@@ -28,4 +28,4 @@ async function mongoDisconnect() {
 module.exports = {
   mongoConnect,
   mongoDisconnect,
-}
+};
