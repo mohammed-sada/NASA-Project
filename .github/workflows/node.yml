@@ -7,17 +7,17 @@ on:
 jobs:
   build:
     env:
-      CI: true # to turn off the watch mode in testing
-  strategy:
-    matrix:
-      node-version: [14.x, 16.x]
+      CI: true
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js version ${{matrix.node-version}}
+      - name: Use Node.js version ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
-          node-version: ${{matrix.node-version}}
+          node-version: ${{ matrix.node-version }}
       - run: npm install
       - run: npm run build --prefix client
       - run: npm test
