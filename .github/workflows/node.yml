@@ -13,11 +13,11 @@ jobs:
       matrix:
         node-version: [14.x, 16.x]
         mongodb-version: ['4.4']
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest # Specify which OS (platfrom) this job should run on
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v2 # Check out the code from the repository
       - name: Use Node.js version ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v2 # Make sure node is installed
         with:
           node-version: ${{ matrix.node-version }}
       - name: Use MongoDB in GitHub Actions
